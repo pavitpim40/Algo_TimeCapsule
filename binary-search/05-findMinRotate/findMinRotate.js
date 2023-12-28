@@ -1,4 +1,4 @@
-// My Solution
+// My Solution I
 function findMinRotated(arr) {
   // WRITE YOUR BRILLIANT CODE HERE
   let left = 0;
@@ -20,6 +20,26 @@ function findMinRotated(arr) {
     }
   }
 
+  return found_index;
+}
+
+// My Solution II
+function findMinRotated(arr) {
+  // WRITE YOUR BRILLIANT CODE HERE
+  let left = 0;
+  let right = arr.length - 1;
+  let found_index = -1;
+
+  while (left <= right) {
+    let mid = left + Math.floor((right - left) / 2);
+    if (arr[right] < arr[mid]) {
+      left = mid + 1;
+      found_index = right;
+    } else {
+      right = mid - 1;
+      found_index = mid;
+    }
+  }
   return found_index;
 }
 
