@@ -33,3 +33,34 @@ function peakOfMountainArray(arr) {
   }
   return found_index;
 }
+
+// Solution-2
+function isIncrease(prev, curr, next) {
+  return prev < curr && curr < next;
+}
+
+function isDecrease(prev, curr, next) {
+  return prev > curr && curr > next;
+}
+function isHighest(prev, curr, next) {
+  return prev < curr && curr > next;
+}
+function peakOfMountainArray(arr) {
+  let left = 0;
+  let rigth = arr.length - 1;
+  let foundIndex = -1;
+
+  while (left <= rigth) {
+    let mid = left + Math.floor((rigth - left) / 2);
+    if (isHighest(arr[mid - 1], arr[mid], arr[mid + 1])) {
+      return mid;
+    }
+    if (isDecrease(arr[mid - 1], arr[mid], arr[mid + 1])) {
+      rigth = mid - 1;
+      foundIndex = mid;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return foundIndex;
+}
