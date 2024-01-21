@@ -16,17 +16,17 @@ function getRomanString(num, expo) {
       return 'M';
   }
 
-  let repeatCount = num / expo;
-  if (repeatCount == 4) {
+  let digit = num / expo;
+  if (digit == 4) {
     // 4 == 5-1
     return getRomanString(expo, expo) + getRomanString(5 * expo, expo);
-  } else if (repeatCount < 4) {
+  } else if (digit > 1 && digit < 4) {
     // 3 == 1+1+1
-    return getRomanString(expo, expo).repeat(repeatCount);
-  } else if (repeatCount == 9) {
+    return getRomanString(expo, expo).repeat(digit);
+  } else if (digit == 9) {
     // 9 == 10-1
     return getRomanString(expo, expo) + getRomanString(num + expo, expo);
-  } else {
+  } else if (digit > 5 && digit < 9) {
     // 5-8 : 5 + 1 + 1 + 1
     return getRomanString(5 * expo) + getRomanString(num - 5 * expo, expo);
   }
