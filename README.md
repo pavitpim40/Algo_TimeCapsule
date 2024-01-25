@@ -29,6 +29,42 @@
 
 4. Tree Traversal
 
+- Inorder : left -> root -> right
+- Preorder : root -> left -> right
+- Postorder : left -> right -> root
+
+inorder
+
+```js
+function inOrder(node) {
+  if (node !== null) {
+    inOrder(node.left);
+    console.log(node.value);
+    inOrder(node.right);
+  }
+}
+```
+
+```js
+function preOrder(node) {
+  if (node != null) {
+    console.log(node.value);
+    inOrder(node.left);
+    inOrder(node.right);
+  }
+}
+```
+
+```js
+function postOrder(node) {
+  if (node != null) {
+    inOrder(node.left);
+    inOrder(node.right);
+    console.log(node.value);
+  }
+}
+```
+
 # Depth First Search (DFS)
 
 ```js
