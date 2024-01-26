@@ -65,6 +65,21 @@ function postOrder(node) {
 }
 ```
 
+# DSF On Tree
+
+วิธีการแก้ DFS ของ tree
+
+- คิดเป็น node
+- เวลา Define recursive function แนะให้คิดตามลำดับดังนี้
+
+  - Return value : ค่าที่จะส่งจาก Children to Parent
+  - Identify State : (ค่าที่จะส่งจาก parent ไป child) ให้เป็น argument ของ dfs  
+    ถ้าไม่มีตัวนี้ด้วย recursive structure ตัว Fn ที่ call จะไม่รู้ตัวเองว่าอยู่ State ไหน
+
+- เวลาแก้ปัญหาจะมี 2 Approach
+  - ใช้ Return Value (Divide and Conquer,คล้าย merge sore)
+  - ใช้ Global Variable เก็บค่า (บางครั้งหากวิธีบนยากไป ลองวิธีนี้)
+
 # Depth First Search (DFS)
 
 ```js
