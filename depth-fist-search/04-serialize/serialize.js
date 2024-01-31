@@ -9,14 +9,15 @@ function serialize(root) {
 }
 
 function deserialize_recurse(nodeArr) {
-  if (nodeArr.lenght == 0) return null;
-  if (nodeArr[0] === 'x') return null;
-  const tree = new Node(
-    nodeArr[0],
-    deserialize_recurse(nodeArr.slice(1)),
-    deserialize_recurse(nodeArr.slice(2))
-  );
-  console.log(tree);
+  // let val = nodeArr.next().value
+  // console.log(val)
+  let val = nodeArr.shift();
+
+  if (!val || val === 'x') return null;
+
+  const tree = new Node(val);
+  tree.left = deserialize_recurse(nodeArr);
+  tree.right = deserialize_recurse(nodeArr);
   return tree;
 }
 
