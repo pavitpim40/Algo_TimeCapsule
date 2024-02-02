@@ -94,3 +94,24 @@ function dfs(node, target) {
   return right;
 }
 ```
+
+# BST = Binary Search Tree
+
+#### Definition
+
+- all left child must less than value of current node
+- all rigth child must greater than value of current node
+
+implementation
+
+```js
+function bst(node, searchVal) {
+  if (!node) return false;
+  if (node.val == searchVal) return true;
+  if (node.val > searchVal) {
+    return bst(node.left, searchVal);
+  } else {
+    return bst(node.rigth, searchVal);
+  }
+}
+```
