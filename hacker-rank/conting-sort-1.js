@@ -6,5 +6,16 @@ function countingSort(arr) {
   for (let n of arr) {
     countingArr[n]++;
   }
-  return countingArr;
+  let lastZeroIndex = -1;
+  for (let i = 0; i < countingArr.length; i++) {
+    let n = countingArr[i];
+    if (lastZeroIndex == -1 && n == 0) lastZeroIndex = i;
+    if (lastZeroIndex != -1 && n == 0) continue;
+    else if (lastZeroIndex != -1 && n != 0) lastZeroIndex = -1;
+  }
+
+  if (lastZeroIndex != -1) {
+    lastZeroIndex = lastZeroIndex === arr.length - 1 ? lastZeroIndex + 1 : lastZeroIndex;
+    return countingArr.slice(0, lastZeroIndex);
+  } else return countingArr;
 }
